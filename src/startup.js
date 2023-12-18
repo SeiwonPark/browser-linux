@@ -79,7 +79,6 @@ if (window.params.has("screen")) {
     window.screen = true; //don't hide the screen after boot
   } else {
     document.getElementById("screen_container").style.display = "none";
-    document.getElementById("screenButton").innerHTML = "show screen";
   }
 }
 
@@ -184,7 +183,6 @@ function loadSaves() {
             //if there is a open app, refresh it
             emulator.serial0_send("\x1b" + "\x0c"); //esc followed by ctrl-l to refresh terminal
             document.getElementById("screen_container").style.display = "none"; //hide the screen
-            document.getElementById("screenButton").innerHTML = "show screen";
           }
 
           document.getElementById("save_time").innerHTML =
@@ -231,7 +229,6 @@ emulator.add_listener("serial0-output-char", function (char) {
         //continue showing the screen if false
         document.getElementById("screen_container").style.display = "none"; //hide the screen and waiting text
         document.getElementById("waiting_text").style.display = "none";
-        document.getElementById("screenButton").innerHTML = "show screen";
       }
       waiting_text.style.display = "none";
       document.getElementById("boot_time").innerHTML =
